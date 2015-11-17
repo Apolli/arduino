@@ -78,7 +78,6 @@ void loop()
     }
   }
 
-
   // update display content and rotate messages
   checkContent();
 
@@ -88,7 +87,7 @@ void loop()
 
 
 
-int getNextAcive()
+int getNextActive()
 {
   // get next active
   if(currentContent) {
@@ -126,10 +125,9 @@ void checkContent()
   char tmp[10];
   char hum[10];
 
-
   // rotate every 5 seconds
   if(((millis()-timer) / 1000) > 5) {
-    int from = getNextAcive();
+    int from = getNextActive();
     if(!messageQueue[from]) {
       return;
     }
