@@ -1,4 +1,4 @@
-// Copyright Benoit Blanchon 2014
+// Copyright Benoit Blanchon 2014-2015
 // MIT License
 //
 // Arduino JSON library
@@ -8,6 +8,9 @@
 
 void setup() {
   Serial.begin(9600);
+  while (!Serial) {
+    // wait serial port initialization
+  }
 
   StaticJsonBuffer<200> jsonBuffer;
 

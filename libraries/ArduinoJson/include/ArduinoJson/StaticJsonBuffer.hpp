@@ -1,4 +1,4 @@
-// Copyright Benoit Blanchon 2014
+// Copyright Benoit Blanchon 2014-2015
 // MIT License
 //
 // Arduino JSON library
@@ -21,11 +21,10 @@ class StaticJsonBuffer : public JsonBuffer {
   size_t capacity() const { return CAPACITY; }
   size_t size() const { return _size; }
 
- protected:
   virtual void* alloc(size_t bytes) {
     if (_size + bytes > CAPACITY) return NULL;
     void* p = &_buffer[_size];
-    _size += bytes;
+    _size += round_size_up(bytes);
     return p;
   }
 
