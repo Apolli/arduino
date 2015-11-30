@@ -40,10 +40,10 @@ void loop()
 
   // prepare json
   StaticJsonBuffer<200> jsonBuffer;
-  JsonObject& array = jsonBuffer.createObject();
-  array["s"] = "water";
-  array["lvl"] = (cm/5);
 
+  JsonArray& array = jsonBuffer.createArray();
+  array.add((int)(cm/5));
+  
   char data[RH_NRF24_MAX_MESSAGE_LEN];
   array.printTo(data, sizeof(data));
   Serial.println(data);
